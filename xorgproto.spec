@@ -6,13 +6,13 @@
 #
 Name     : xorgproto
 Version  : 2018.4
-Release  : 2
+Release  : 3
 URL      : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source0  : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source99 : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz.sig
 Summary  : Render extension headers
 Group    : Development/Tools
-License  : 2BSD HPND ICU MIT MIT-Opengroup MIT-feh SGI-B-2.0 X11
+License  : BSD-2-Clause HPND ICU MIT MIT-Opengroup MIT-feh SGI-B-2.0 X11
 Requires: xorgproto-doc
 BuildRequires : libxslt-bin
 BuildRequires : meson
@@ -55,7 +55,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526133250
+export SOURCE_DATE_EPOCH=1526133384
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -67,7 +67,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1526133250
+export SOURCE_DATE_EPOCH=1526133384
 rm -rf %{buildroot}
 %make_install
 
