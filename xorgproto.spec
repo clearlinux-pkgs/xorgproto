@@ -6,7 +6,7 @@
 #
 Name     : xorgproto
 Version  : 2018.4
-Release  : 3
+Release  : 4
 URL      : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source0  : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source99 : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz.sig
@@ -14,9 +14,15 @@ Summary  : Render extension headers
 Group    : Development/Tools
 License  : BSD-2-Clause HPND ICU MIT MIT-Opengroup MIT-feh SGI-B-2.0 X11
 Requires: xorgproto-doc
+BuildRequires : gcc-dev32
+BuildRequires : gcc-libgcc32
+BuildRequires : gcc-libstdc++32
+BuildRequires : glibc-dev32
+BuildRequires : glibc-libc32
 BuildRequires : libxslt-bin
 BuildRequires : meson
 BuildRequires : ninja
+BuildRequires : pkgconfig(32xorg-macros)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : python3
 BuildRequires : xmlto
@@ -39,6 +45,15 @@ Provides: xorgproto-devel
 dev components for the xorgproto package.
 
 
+%package dev32
+Summary: dev32 components for the xorgproto package.
+Group: Default
+Requires: xorgproto-dev
+
+%description dev32
+dev32 components for the xorgproto package.
+
+
 %package doc
 Summary: doc components for the xorgproto package.
 Group: Documentation
@@ -49,16 +64,27 @@ doc components for the xorgproto package.
 
 %prep
 %setup -q -n xorgproto-2018.4
+pushd ..
+cp -a xorgproto-2018.4 build32
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526133384
+export SOURCE_DATE_EPOCH=1526134223
 %configure --disable-static
 make  %{?_smp_mflags}
 
+pushd ../build32/
+export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+export CFLAGS="$CFLAGS -m32"
+export CXXFLAGS="$CXXFLAGS -m32"
+export LDFLAGS="$LDFLAGS -m32"
+%configure --disable-static    --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
@@ -67,8 +93,17 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1526133384
+export SOURCE_DATE_EPOCH=1526134223
 rm -rf %{buildroot}
+pushd ../build32/
+%make_install32
+if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
+then
+pushd %{buildroot}/usr/lib32/pkgconfig
+for i in *.pc ; do ln -s $i 32$i ; done
+popd
+fi
+popd
 %make_install
 
 %files
@@ -250,6 +285,71 @@ rm -rf %{buildroot}
 /usr/lib64/pkgconfig/xineramaproto.pc
 /usr/lib64/pkgconfig/xproto.pc
 /usr/lib64/pkgconfig/xproxymngproto.pc
+
+%files dev32
+%defattr(-,root,root,-)
+/usr/lib32/pkgconfig/32applewmproto.pc
+/usr/lib32/pkgconfig/32bigreqsproto.pc
+/usr/lib32/pkgconfig/32compositeproto.pc
+/usr/lib32/pkgconfig/32damageproto.pc
+/usr/lib32/pkgconfig/32dmxproto.pc
+/usr/lib32/pkgconfig/32dri2proto.pc
+/usr/lib32/pkgconfig/32dri3proto.pc
+/usr/lib32/pkgconfig/32fixesproto.pc
+/usr/lib32/pkgconfig/32fontsproto.pc
+/usr/lib32/pkgconfig/32glproto.pc
+/usr/lib32/pkgconfig/32inputproto.pc
+/usr/lib32/pkgconfig/32kbproto.pc
+/usr/lib32/pkgconfig/32presentproto.pc
+/usr/lib32/pkgconfig/32randrproto.pc
+/usr/lib32/pkgconfig/32recordproto.pc
+/usr/lib32/pkgconfig/32renderproto.pc
+/usr/lib32/pkgconfig/32resourceproto.pc
+/usr/lib32/pkgconfig/32scrnsaverproto.pc
+/usr/lib32/pkgconfig/32trapproto.pc
+/usr/lib32/pkgconfig/32videoproto.pc
+/usr/lib32/pkgconfig/32windowswmproto.pc
+/usr/lib32/pkgconfig/32xcmiscproto.pc
+/usr/lib32/pkgconfig/32xextproto.pc
+/usr/lib32/pkgconfig/32xf86bigfontproto.pc
+/usr/lib32/pkgconfig/32xf86dgaproto.pc
+/usr/lib32/pkgconfig/32xf86driproto.pc
+/usr/lib32/pkgconfig/32xf86miscproto.pc
+/usr/lib32/pkgconfig/32xf86vidmodeproto.pc
+/usr/lib32/pkgconfig/32xineramaproto.pc
+/usr/lib32/pkgconfig/32xproto.pc
+/usr/lib32/pkgconfig/32xproxymngproto.pc
+/usr/lib32/pkgconfig/applewmproto.pc
+/usr/lib32/pkgconfig/bigreqsproto.pc
+/usr/lib32/pkgconfig/compositeproto.pc
+/usr/lib32/pkgconfig/damageproto.pc
+/usr/lib32/pkgconfig/dmxproto.pc
+/usr/lib32/pkgconfig/dri2proto.pc
+/usr/lib32/pkgconfig/dri3proto.pc
+/usr/lib32/pkgconfig/fixesproto.pc
+/usr/lib32/pkgconfig/fontsproto.pc
+/usr/lib32/pkgconfig/glproto.pc
+/usr/lib32/pkgconfig/inputproto.pc
+/usr/lib32/pkgconfig/kbproto.pc
+/usr/lib32/pkgconfig/presentproto.pc
+/usr/lib32/pkgconfig/randrproto.pc
+/usr/lib32/pkgconfig/recordproto.pc
+/usr/lib32/pkgconfig/renderproto.pc
+/usr/lib32/pkgconfig/resourceproto.pc
+/usr/lib32/pkgconfig/scrnsaverproto.pc
+/usr/lib32/pkgconfig/trapproto.pc
+/usr/lib32/pkgconfig/videoproto.pc
+/usr/lib32/pkgconfig/windowswmproto.pc
+/usr/lib32/pkgconfig/xcmiscproto.pc
+/usr/lib32/pkgconfig/xextproto.pc
+/usr/lib32/pkgconfig/xf86bigfontproto.pc
+/usr/lib32/pkgconfig/xf86dgaproto.pc
+/usr/lib32/pkgconfig/xf86driproto.pc
+/usr/lib32/pkgconfig/xf86miscproto.pc
+/usr/lib32/pkgconfig/xf86vidmodeproto.pc
+/usr/lib32/pkgconfig/xineramaproto.pc
+/usr/lib32/pkgconfig/xproto.pc
+/usr/lib32/pkgconfig/xproxymngproto.pc
 
 %files doc
 %defattr(-,root,root,-)
