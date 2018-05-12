@@ -6,7 +6,7 @@
 #
 Name     : xorgproto
 Version  : 2018.4
-Release  : 4
+Release  : 5
 URL      : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source0  : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source99 : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz.sig
@@ -40,6 +40,12 @@ common definitions and porting layer.
 Summary: dev components for the xorgproto package.
 Group: Development
 Provides: xorgproto-devel
+Provides: inputproto-dev
+Provides: kbproto-dev
+Provides: renderproto-dev
+Provides: xextproto-dev
+Provides: xproto-dev
+
 
 %description dev
 dev components for the xorgproto package.
