@@ -6,7 +6,7 @@
 #
 Name     : xorgproto
 Version  : 2018.4
-Release  : 5
+Release  : 6
 URL      : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source0  : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source99 : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz.sig
