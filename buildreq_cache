@@ -1,0 +1,6 @@
+2019.1
+libxslt-bin
+pkg-config
+pkgconfig(32xorg-macros)
+pkgconfig(xorg-macros)
+xmlto
