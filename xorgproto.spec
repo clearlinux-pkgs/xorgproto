@@ -6,7 +6,7 @@
 #
 Name     : xorgproto
 Version  : 2018.4
-Release  : 12
+Release  : 13
 URL      : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source0  : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz
 Source1  : https://www.x.org/archive/individual/proto/xorgproto-2018.4.tar.gz.sig
@@ -24,6 +24,7 @@ BuildRequires : libxslt-bin
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(32xorg-macros)
 BuildRequires : pkgconfig(xorg-macros)
+BuildRequires : pkgconfig(xt)
 BuildRequires : xmlto
 
 %description
@@ -82,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578949024
+export SOURCE_DATE_EPOCH=1578949670
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -113,7 +114,7 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1578949024
+export SOURCE_DATE_EPOCH=1578949670
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xorgproto
 cp %{_builddir}/xorgproto-2018.4/COPYING-applewmproto %{buildroot}/usr/share/package-licenses/xorgproto/42340fde32d40bfd8d338379870b9980ebcde846
