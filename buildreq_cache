@@ -1,7 +1,6 @@
-2019.2
+2018.4
 libxslt-bin
 pkg-config
 pkgconfig(32xorg-macros)
 pkgconfig(xorg-macros)
-util-linux
 xmlto
