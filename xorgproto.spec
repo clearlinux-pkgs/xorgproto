@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xorgproto
-Version  : 2021.3
-Release  : 15
-URL      : https://www.x.org/archive/individual/proto/xorgproto-2021.3.tar.gz
-Source0  : https://www.x.org/archive/individual/proto/xorgproto-2021.3.tar.gz
-Source1  : https://www.x.org/archive/individual/proto/xorgproto-2021.3.tar.gz.sig
+Version  : 2021.4
+Release  : 16
+URL      : https://www.x.org/archive/individual/proto/xorgproto-2021.4.tar.gz
+Source0  : https://www.x.org/archive/individual/proto/xorgproto-2021.4.tar.gz
+Source1  : https://www.x.org/archive/individual/proto/xorgproto-2021.4.tar.gz.sig
 Summary  : GL extension headers
 Group    : Development/Tools
 License  : BSD-2-Clause HPND ICU MIT MIT-Opengroup MIT-feh SGI-B-2.0 X11
@@ -69,10 +69,10 @@ license components for the xorgproto package.
 
 
 %prep
-%setup -q -n xorgproto-2021.3
-cd %{_builddir}/xorgproto-2021.3
+%setup -q -n xorgproto-2021.4
+cd %{_builddir}/xorgproto-2021.4
 pushd ..
-cp -a xorgproto-2021.3 build32
+cp -a xorgproto-2021.4 build32
 popd
 
 %build
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1614274266
+export SOURCE_DATE_EPOCH=1620062415
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -111,45 +111,45 @@ cd ../build32;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1614274266
+export SOURCE_DATE_EPOCH=1620062415
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xorgproto
-cp %{_builddir}/xorgproto-2021.3/COPYING-applewmproto %{buildroot}/usr/share/package-licenses/xorgproto/42340fde32d40bfd8d338379870b9980ebcde846
-cp %{_builddir}/xorgproto-2021.3/COPYING-bigreqsproto %{buildroot}/usr/share/package-licenses/xorgproto/893c940eb56cd6a45620c65c72b9a8c48bd79217
-cp %{_builddir}/xorgproto-2021.3/COPYING-compositeproto %{buildroot}/usr/share/package-licenses/xorgproto/0292928b4571cd06a52307940df8bcffc4c51ea4
-cp %{_builddir}/xorgproto-2021.3/COPYING-damageproto %{buildroot}/usr/share/package-licenses/xorgproto/d271044d7dd048bfac0e5ab7aea3666687c9aa2f
-cp %{_builddir}/xorgproto-2021.3/COPYING-dmxproto %{buildroot}/usr/share/package-licenses/xorgproto/6c394114eefb35de30b9675a99cc1500c6e574cb
-cp %{_builddir}/xorgproto-2021.3/COPYING-dri2proto %{buildroot}/usr/share/package-licenses/xorgproto/254aec9ad4aa42eb4f11c7a58ea1d297e14c43ae
-cp %{_builddir}/xorgproto-2021.3/COPYING-dri3proto %{buildroot}/usr/share/package-licenses/xorgproto/124a6c588b14eda9e67225c78979d80b04085eb5
-cp %{_builddir}/xorgproto-2021.3/COPYING-evieproto %{buildroot}/usr/share/package-licenses/xorgproto/eac5468c3e4a75782e62807c1973c2c0600122fd
-cp %{_builddir}/xorgproto-2021.3/COPYING-fixesproto %{buildroot}/usr/share/package-licenses/xorgproto/1cc9ab3464ce507485f4982670d12916ec5a3c0e
-cp %{_builddir}/xorgproto-2021.3/COPYING-fontcacheproto %{buildroot}/usr/share/package-licenses/xorgproto/47ca90dc423091f8db250f2cc45f28aba88d11ed
-cp %{_builddir}/xorgproto-2021.3/COPYING-fontsproto %{buildroot}/usr/share/package-licenses/xorgproto/3c33e98325d414f0290c82bc32b0d8c28cbeeb9b
-cp %{_builddir}/xorgproto-2021.3/COPYING-glproto %{buildroot}/usr/share/package-licenses/xorgproto/a9fbc5ee6bc3b991c1fee735b96204001a8d64fe
-cp %{_builddir}/xorgproto-2021.3/COPYING-inputproto %{buildroot}/usr/share/package-licenses/xorgproto/d8b8b6fadbff8363d66d5c703971ab0c86696e26
-cp %{_builddir}/xorgproto-2021.3/COPYING-kbproto %{buildroot}/usr/share/package-licenses/xorgproto/cbfdfb0078ac466712aa0a82242b8fc955b0bc00
-cp %{_builddir}/xorgproto-2021.3/COPYING-lg3dproto %{buildroot}/usr/share/package-licenses/xorgproto/8258eff701c6fc7c254291f816ba170cc752afdb
-cp %{_builddir}/xorgproto-2021.3/COPYING-pmproto %{buildroot}/usr/share/package-licenses/xorgproto/0fd34aff7c778553a46ad8bf5d325f493a65a6ac
-cp %{_builddir}/xorgproto-2021.3/COPYING-presentproto %{buildroot}/usr/share/package-licenses/xorgproto/124a6c588b14eda9e67225c78979d80b04085eb5
-cp %{_builddir}/xorgproto-2021.3/COPYING-printproto %{buildroot}/usr/share/package-licenses/xorgproto/cd2802b57c40957cfb38a4cdd72163895046f8de
-cp %{_builddir}/xorgproto-2021.3/COPYING-randrproto %{buildroot}/usr/share/package-licenses/xorgproto/5c96c2383498d529b9f62385b9db5ed6f290a890
-cp %{_builddir}/xorgproto-2021.3/COPYING-recordproto %{buildroot}/usr/share/package-licenses/xorgproto/618c9d05efe2932bc3aa4745ecfb548303dd8f08
-cp %{_builddir}/xorgproto-2021.3/COPYING-renderproto %{buildroot}/usr/share/package-licenses/xorgproto/4882eb6580148a083a7745785ef76768de52086c
-cp %{_builddir}/xorgproto-2021.3/COPYING-resourceproto %{buildroot}/usr/share/package-licenses/xorgproto/6596e03f9467e3d698993a49289a502c4baf7e08
-cp %{_builddir}/xorgproto-2021.3/COPYING-scrnsaverproto %{buildroot}/usr/share/package-licenses/xorgproto/87d59feee73204c7334b7e00ae1cec3f3c583474
-cp %{_builddir}/xorgproto-2021.3/COPYING-trapproto %{buildroot}/usr/share/package-licenses/xorgproto/d89dea43c64cc3e1509ca935c2745cb9119d2ad9
-cp %{_builddir}/xorgproto-2021.3/COPYING-videoproto %{buildroot}/usr/share/package-licenses/xorgproto/95828c7cb78866a118ce19012faefcd9da321946
-cp %{_builddir}/xorgproto-2021.3/COPYING-windowswmproto %{buildroot}/usr/share/package-licenses/xorgproto/9d9197d2f5bab005c1592b820ceed2550f97db19
-cp %{_builddir}/xorgproto-2021.3/COPYING-x11proto %{buildroot}/usr/share/package-licenses/xorgproto/2265307c7d3468db5bacdebfdf73a52123fead8f
-cp %{_builddir}/xorgproto-2021.3/COPYING-xcmiscproto %{buildroot}/usr/share/package-licenses/xorgproto/bb306f5409529d1c19b78d60f705d37e3c470124
-cp %{_builddir}/xorgproto-2021.3/COPYING-xextproto %{buildroot}/usr/share/package-licenses/xorgproto/caf1c560f7638108b748b90a8798b5c4ee54b464
-cp %{_builddir}/xorgproto-2021.3/COPYING-xf86bigfontproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
-cp %{_builddir}/xorgproto-2021.3/COPYING-xf86dgaproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
-cp %{_builddir}/xorgproto-2021.3/COPYING-xf86driproto %{buildroot}/usr/share/package-licenses/xorgproto/88aacfcae9d42c894660950b01e7229cc2895cad
-cp %{_builddir}/xorgproto-2021.3/COPYING-xf86miscproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
-cp %{_builddir}/xorgproto-2021.3/COPYING-xf86rushproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
-cp %{_builddir}/xorgproto-2021.3/COPYING-xf86vidmodeproto %{buildroot}/usr/share/package-licenses/xorgproto/d13c7d638806dc37e5c9b6bbc39366cd904d04de
-cp %{_builddir}/xorgproto-2021.3/COPYING-xineramaproto %{buildroot}/usr/share/package-licenses/xorgproto/2aa8684f0abf57011bd8bf5c30b0390cc2c85a03
+cp %{_builddir}/xorgproto-2021.4/COPYING-applewmproto %{buildroot}/usr/share/package-licenses/xorgproto/42340fde32d40bfd8d338379870b9980ebcde846
+cp %{_builddir}/xorgproto-2021.4/COPYING-bigreqsproto %{buildroot}/usr/share/package-licenses/xorgproto/893c940eb56cd6a45620c65c72b9a8c48bd79217
+cp %{_builddir}/xorgproto-2021.4/COPYING-compositeproto %{buildroot}/usr/share/package-licenses/xorgproto/0292928b4571cd06a52307940df8bcffc4c51ea4
+cp %{_builddir}/xorgproto-2021.4/COPYING-damageproto %{buildroot}/usr/share/package-licenses/xorgproto/d271044d7dd048bfac0e5ab7aea3666687c9aa2f
+cp %{_builddir}/xorgproto-2021.4/COPYING-dmxproto %{buildroot}/usr/share/package-licenses/xorgproto/6c394114eefb35de30b9675a99cc1500c6e574cb
+cp %{_builddir}/xorgproto-2021.4/COPYING-dri2proto %{buildroot}/usr/share/package-licenses/xorgproto/254aec9ad4aa42eb4f11c7a58ea1d297e14c43ae
+cp %{_builddir}/xorgproto-2021.4/COPYING-dri3proto %{buildroot}/usr/share/package-licenses/xorgproto/124a6c588b14eda9e67225c78979d80b04085eb5
+cp %{_builddir}/xorgproto-2021.4/COPYING-evieproto %{buildroot}/usr/share/package-licenses/xorgproto/eac5468c3e4a75782e62807c1973c2c0600122fd
+cp %{_builddir}/xorgproto-2021.4/COPYING-fixesproto %{buildroot}/usr/share/package-licenses/xorgproto/1cc9ab3464ce507485f4982670d12916ec5a3c0e
+cp %{_builddir}/xorgproto-2021.4/COPYING-fontcacheproto %{buildroot}/usr/share/package-licenses/xorgproto/47ca90dc423091f8db250f2cc45f28aba88d11ed
+cp %{_builddir}/xorgproto-2021.4/COPYING-fontsproto %{buildroot}/usr/share/package-licenses/xorgproto/3c33e98325d414f0290c82bc32b0d8c28cbeeb9b
+cp %{_builddir}/xorgproto-2021.4/COPYING-glproto %{buildroot}/usr/share/package-licenses/xorgproto/a9fbc5ee6bc3b991c1fee735b96204001a8d64fe
+cp %{_builddir}/xorgproto-2021.4/COPYING-inputproto %{buildroot}/usr/share/package-licenses/xorgproto/d8b8b6fadbff8363d66d5c703971ab0c86696e26
+cp %{_builddir}/xorgproto-2021.4/COPYING-kbproto %{buildroot}/usr/share/package-licenses/xorgproto/cbfdfb0078ac466712aa0a82242b8fc955b0bc00
+cp %{_builddir}/xorgproto-2021.4/COPYING-lg3dproto %{buildroot}/usr/share/package-licenses/xorgproto/8258eff701c6fc7c254291f816ba170cc752afdb
+cp %{_builddir}/xorgproto-2021.4/COPYING-pmproto %{buildroot}/usr/share/package-licenses/xorgproto/0fd34aff7c778553a46ad8bf5d325f493a65a6ac
+cp %{_builddir}/xorgproto-2021.4/COPYING-presentproto %{buildroot}/usr/share/package-licenses/xorgproto/124a6c588b14eda9e67225c78979d80b04085eb5
+cp %{_builddir}/xorgproto-2021.4/COPYING-printproto %{buildroot}/usr/share/package-licenses/xorgproto/cd2802b57c40957cfb38a4cdd72163895046f8de
+cp %{_builddir}/xorgproto-2021.4/COPYING-randrproto %{buildroot}/usr/share/package-licenses/xorgproto/5c96c2383498d529b9f62385b9db5ed6f290a890
+cp %{_builddir}/xorgproto-2021.4/COPYING-recordproto %{buildroot}/usr/share/package-licenses/xorgproto/618c9d05efe2932bc3aa4745ecfb548303dd8f08
+cp %{_builddir}/xorgproto-2021.4/COPYING-renderproto %{buildroot}/usr/share/package-licenses/xorgproto/4882eb6580148a083a7745785ef76768de52086c
+cp %{_builddir}/xorgproto-2021.4/COPYING-resourceproto %{buildroot}/usr/share/package-licenses/xorgproto/6596e03f9467e3d698993a49289a502c4baf7e08
+cp %{_builddir}/xorgproto-2021.4/COPYING-scrnsaverproto %{buildroot}/usr/share/package-licenses/xorgproto/87d59feee73204c7334b7e00ae1cec3f3c583474
+cp %{_builddir}/xorgproto-2021.4/COPYING-trapproto %{buildroot}/usr/share/package-licenses/xorgproto/d89dea43c64cc3e1509ca935c2745cb9119d2ad9
+cp %{_builddir}/xorgproto-2021.4/COPYING-videoproto %{buildroot}/usr/share/package-licenses/xorgproto/95828c7cb78866a118ce19012faefcd9da321946
+cp %{_builddir}/xorgproto-2021.4/COPYING-windowswmproto %{buildroot}/usr/share/package-licenses/xorgproto/9d9197d2f5bab005c1592b820ceed2550f97db19
+cp %{_builddir}/xorgproto-2021.4/COPYING-x11proto %{buildroot}/usr/share/package-licenses/xorgproto/2265307c7d3468db5bacdebfdf73a52123fead8f
+cp %{_builddir}/xorgproto-2021.4/COPYING-xcmiscproto %{buildroot}/usr/share/package-licenses/xorgproto/bb306f5409529d1c19b78d60f705d37e3c470124
+cp %{_builddir}/xorgproto-2021.4/COPYING-xextproto %{buildroot}/usr/share/package-licenses/xorgproto/caf1c560f7638108b748b90a8798b5c4ee54b464
+cp %{_builddir}/xorgproto-2021.4/COPYING-xf86bigfontproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
+cp %{_builddir}/xorgproto-2021.4/COPYING-xf86dgaproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
+cp %{_builddir}/xorgproto-2021.4/COPYING-xf86driproto %{buildroot}/usr/share/package-licenses/xorgproto/88aacfcae9d42c894660950b01e7229cc2895cad
+cp %{_builddir}/xorgproto-2021.4/COPYING-xf86miscproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
+cp %{_builddir}/xorgproto-2021.4/COPYING-xf86rushproto %{buildroot}/usr/share/package-licenses/xorgproto/9384394a530b4a93530da89f95e05ac86c4880a0
+cp %{_builddir}/xorgproto-2021.4/COPYING-xf86vidmodeproto %{buildroot}/usr/share/package-licenses/xorgproto/d13c7d638806dc37e5c9b6bbc39366cd904d04de
+cp %{_builddir}/xorgproto-2021.4/COPYING-xineramaproto %{buildroot}/usr/share/package-licenses/xorgproto/2aa8684f0abf57011bd8bf5c30b0390cc2c85a03
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
