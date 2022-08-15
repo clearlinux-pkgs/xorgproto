@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xorgproto
-Version  : 2022.1
-Release  : 18
-URL      : https://www.x.org/archive/individual/proto/xorgproto-2022.1.tar.gz
-Source0  : https://www.x.org/archive/individual/proto/xorgproto-2022.1.tar.gz
-Source1  : https://www.x.org/archive/individual/proto/xorgproto-2022.1.tar.gz.sig
-Summary  : X Proxy Management Protocol headers
+Version  : 2022.2
+Release  : 19
+URL      : https://www.x.org/archive/individual/proto/xorgproto-2022.2.tar.gz
+Source0  : https://www.x.org/archive/individual/proto/xorgproto-2022.2.tar.gz
+Source1  : https://www.x.org/archive/individual/proto/xorgproto-2022.2.tar.gz.sig
+Summary  : Xwayland extension headers
 Group    : Development/Tools
 License  : BSD-2-Clause HPND ICU MIT MIT-Opengroup MIT-feh SGI-B-2.0 X11
 Requires: xorgproto-license = %{version}-%{release}
@@ -69,10 +69,10 @@ license components for the xorgproto package.
 
 
 %prep
-%setup -q -n xorgproto-2022.1
-cd %{_builddir}/xorgproto-2022.1
+%setup -q -n xorgproto-2022.2
+cd %{_builddir}/xorgproto-2022.2
 pushd ..
-cp -a xorgproto-2022.1 build32
+cp -a xorgproto-2022.2 build32
 popd
 
 %build
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1658773454
+export SOURCE_DATE_EPOCH=1660600100
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -111,7 +111,7 @@ cd ../build32;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1658773454
+export SOURCE_DATE_EPOCH=1660600100
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xorgproto
 cp %{_builddir}/xorgproto-%{version}/COPYING-applewmproto %{buildroot}/usr/share/package-licenses/xorgproto/42340fde32d40bfd8d338379870b9980ebcde846
@@ -294,6 +294,7 @@ rm -f %{buildroot}*/usr/include/X11/extensions/vldXvMC.h
 /usr/include/X11/extensions/xtestext1const.h
 /usr/include/X11/extensions/xtestext1proto.h
 /usr/include/X11/extensions/xtestproto.h
+/usr/include/X11/extensions/xwaylandproto.h
 /usr/include/X11/fonts/FS.h
 /usr/include/X11/fonts/FSproto.h
 /usr/include/X11/fonts/font.h
@@ -330,6 +331,7 @@ rm -f %{buildroot}*/usr/include/X11/extensions/vldXvMC.h
 /usr/lib64/pkgconfig/xf86vidmodeproto.pc
 /usr/lib64/pkgconfig/xineramaproto.pc
 /usr/lib64/pkgconfig/xproto.pc
+/usr/lib64/pkgconfig/xwaylandproto.pc
 
 %files dev32
 %defattr(-,root,root,-)
@@ -361,6 +363,7 @@ rm -f %{buildroot}*/usr/include/X11/extensions/vldXvMC.h
 /usr/lib32/pkgconfig/32xf86vidmodeproto.pc
 /usr/lib32/pkgconfig/32xineramaproto.pc
 /usr/lib32/pkgconfig/32xproto.pc
+/usr/lib32/pkgconfig/32xwaylandproto.pc
 /usr/lib32/pkgconfig/applewmproto.pc
 /usr/lib32/pkgconfig/bigreqsproto.pc
 /usr/lib32/pkgconfig/compositeproto.pc
@@ -389,6 +392,7 @@ rm -f %{buildroot}*/usr/include/X11/extensions/vldXvMC.h
 /usr/lib32/pkgconfig/xf86vidmodeproto.pc
 /usr/lib32/pkgconfig/xineramaproto.pc
 /usr/lib32/pkgconfig/xproto.pc
+/usr/lib32/pkgconfig/xwaylandproto.pc
 
 %files doc
 %defattr(0644,root,root,0755)
