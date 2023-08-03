@@ -1,4 +1,6 @@
 Configure miss: fd_set.fds_bits
 Configure miss: fd_set.fds_bits
+Configure miss: fd_set.fds_bits
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
